@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEarSound | Heiko Ernstreiter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: white; 
+            overflow-x: hidden;
+        }
+
+        .headline-font { font-family: 'Oswald', sans-serif; }
+
+        .bg-console {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), 
+                              url('otto-mischpult-fuer-anfaenger-beitragsbild.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(110%);
+        }
+
+        .glass-dark { 
+            background: rgba(10, 10, 10, 0.92); 
+            backdrop-filter: blur(25px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+
+        .green-glow { text-shadow: 0 0 25px rgba(34, 197, 94, 0.4); }
+
+        .cta-btn {
+            background: #22C55E;
+            color: black;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 1.2rem 3rem;
+            transition: all 0.3s;
+            display: inline-block;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover { background: white; transform: translateY(-3px); }
+
+        /* Cookie Overlay - Blockiert sofort */
+        #cookie-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.98);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cookie-card {
+            background: #111;
+            border: 2px solid #22C55E;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        /* Accordion Impressum */
+        #impressum-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        #impressum-content.open {
+            max-height: 1000px;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #22C55E; }
+    </style>
+</head>
+<body class="bg-console">
+
+    <div id="cookie-overlay">
+        <div class="cookie-card">
+            <h3 class="headline-font text-3xl uppercase mb-4 tracking-tighter italic text-white">HEarSound Privacy</h3>
+            <p class="text-gray-400 text-sm mb-8 leading-relaxed uppercase tracking-widest">
+                Diese Website nutzt Cookies für ein optimales Klangerlebnis. Akzeptieren Sie die Nutzung oder lehnen Sie diese ab.
+            </p>
+            <div class="flex flex-col gap-4">
+                <button onclick="handleCookie(true)" class="bg-green-500 text-black font-black py-4 uppercase tracking-widest hover:bg-white transition">Akzeptieren</button>
+                <button onclick="handleCookie(false)" class="border border-white/20 text-white font-black py-4 uppercase tracking-widest hover:bg-red-600 transition">Ablehnen</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10">
+        <nav class="fixed w-full z-50 py-6 glass-dark border-b border-white/5">
+            <div class="container mx-auto px-8 flex justify-between items-center">
+                <a href="#" class="flex items-center gap-4">
+                    <img src="344600605_198178313065472_7133978692423842205_n.jpg" alt="Logo" class="w-14 h-14 border-2 border-green-500 rounded-full">
+                    <span class="text-2xl font-black headline-font tracking-tighter uppercase">
+                        HEarSound
+                    </span>
+                </a>
+                <div class="hidden md:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.4em]">
+                    <a href="#services" class="hover:text-green-500 transition">Services</a>
+                    <a href="#about" class="hover:text-green-500 transition">Engineer</a>
+                    <a href="#kontakt" class="text-green-500 border-b border-green-500">Kontakt</a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="min-h-screen flex items-center justify-center px-6 text-center">
+            <div class="mt-20">
+                <span class="text-green-500 font-bold tracking-[0.6em] uppercase text-xs mb-6 block">Heiko Ernstreiter | Audio Pro</span>
+                <h1 class="text-7xl md:text-[13rem] font-black headline-font leading-[0.85] uppercase mb-8 green-glow italic tracking-tighter">
+                    HEarSound
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-light tracking-[0.3em] uppercase mb-14 text-white">
+                    High-End Live Audio Engineering & Tour Management.
+                </p>
+                <a href="#kontakt" class="cta-btn text-black">Jetzt Kontaktieren</a>
+            </div>
+        </section>
+
+        <section id="services" class="py-64 px-6 container mx-auto">
+            <div class="grid md:grid-cols-2 gap-32 items-center text-left">
+                <div class="border-l-8 border-green-500 pl-10">
+                    <h2 class="text-7xl font-black headline-font uppercase italic leading-none mb-10">Sonic <br><span class="text-green-500">Precision.</span></h2>
+                    <p class="text-gray-400 text-xl leading-relaxed">Keine Kompromisse beim Sound. Ich sorge für maximale Definition und Energie auf jeder Produktion – ob Club, Halle oder Festival.</p>
+                </div>
+                <div class="grid gap-6">
+                    <div class="p-10 bg-white/5 border border-white/5 hover:border-green-500 transition-all duration-700">
+                        <h3 class="text-2xl font-black uppercase text-green-500 mb-4">FOH Mixing</h3>
+                        <p class="text-gray-400 italic">Druckvoller, transparenter Mix für das Publikum.</p>
+                    </div>
+                    <div class="p-10 bg-white/5 border border-white/5 hover:border-green-500 transition-all duration-700">
+                        <h3 class="text-2xl font-black uppercase text-green-500 mb-4">Monitor Mix</h3>
+                        <p class="text-gray-400 italic">Maximale Performance-Sicherheit für die Artists.</p>
+                    </div>
+                    <div class="p-10 bg-white/5 border border-white/5 hover:border-green-500 transition-all duration-700">
+                        <h3 class="text-2xl font-black uppercase text-green-500 mb-4">System Tuning</h3>
+                        <p class="text-gray-400 italic">Professionelle Einmessung komplexer PA-Systeme.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-64 bg-white text-black">
+            <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-24 items-center">
+                <div class="text-left">
+                    <h2 class="text-7xl font-black headline-font uppercase italic mb-10 leading-none">The <span class="text-green-600">Engineer.</span></h2>
+                    <p class="text-2xl font-medium leading-relaxed mb-10">
+                        Heiko Ernstreiter steht für technische Perfektion seit 2014. Als Spezialist für digitale Audionetzwerke und Live-Mixing begleite ich Produktionen mit Ruhe, Kompetenz und Leidenschaft für das Detail.
+                    </p>
+                    <div class="grid grid-cols-2 gap-10 font-black uppercase text-sm tracking-widest text-gray-400">
+                        <div>
+                            <p class="text-green-600 mb-2">→ Expertise</p>
+                            <p>Digital Consoles</p>
+                            <p>Network Audio</p>
+                        </div>
+                        <div>
+                            <p class="text-green-600 mb-2">→ Experience</p>
+                            <p>International Tours</p>
+                            <p>Headliner Shows</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80" alt="Audio Desk" class="grayscale border-[20px] border-black shadow-2xl">
+                    <div class="absolute -bottom-10 -right-10 bg-green-500 text-black p-8 font-black uppercase text-xl">PRO AUDIO</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-64 px-6">
+            <div class="container mx-auto max-w-5xl text-center">
+                <h2 class="text-7xl font-black headline-font uppercase italic mb-20">Contact <span class="text-green-500">Heiko.</span></h2>
+                
+                <div class="bg-white/5 p-16 md:p-24 border border-white/5">
+                    <div class="grid md:grid-cols-1 gap-20 text-center">
+                        <div>
+                            <p class="text-[10px] font-black text-green-500 uppercase tracking-[0.5em] mb-6">Direct Line</p>
+                            <a href="tel:+4369910040451" class="text-4xl md:text-6xl font-black mb-4 block hover:text-green-500 transition tracking-tighter">+43 699 10040451</a>
+                            <a href="mailto:heiko@hearsound.pro" class="text-2xl text-gray-400 hover:text-green-500 transition headline-font uppercase">heiko@hearsound.pro</a>
+                        </div>
+                        
+                        <div class="pt-20 border-t border-white/10">
+                            <p class="text-[10px] font-black text-green-500 uppercase tracking-[0.5em] mb-10">Follow HEarSound</p>
+                            <div class="flex flex-wrap justify-center gap-12">
+                                <a href="https://www.instagram.com/hearssound?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-xl font-black uppercase tracking-widest hover:text-green-500 transition border-b-2 border-white/10 pb-2">Instagram</a>
+                                <a href="https://www.facebook.com/HEarsSound/" target="_blank" class="text-xl font-black uppercase tracking-widest hover:text-green-500 transition border-b-2 border-white/10 pb-2">Facebook</a>
+                                <a href="https://youtube.com/@hearssound?si=9_94cS_NZdNrKEOQ" target="_blank" class="text-xl font-black uppercase tracking-widest hover:text-green-500 transition border-b-2 border-white/10 pb-2">YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-10 px-6 bg-black border-t border-white/5">
+            <div class="container mx-auto max-w-5xl text-center">
+                <button onclick="toggleImpressum()" class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-500 hover:text-green-500 transition flex items-center gap-2 mx-auto">
+                    Impressum <span id="imp-icon">⊕</span>
+                </button>
+                
+                <div id="impressum-content" class="text-left mt-10">
+                    <div class="grid md:grid-cols-2 gap-10 text-sm text-gray-400 border-t border-white/5 pt-10">
+                        <div>
+                            <p class="font-black text-white uppercase mb-4 tracking-widest">Inhaber & Verantwortlich:</p>
+                            <p class="text-lg font-bold text-gray-200 uppercase headline-font">Heiko Ernstreiter</p>
+                            <p>HEarSound Audio Engineering</p>
+                            <p>Leoben, Österreich</p>
+                        </div>
+                        <div>
+                            <p class="font-black text-white uppercase mb-4 tracking-widest">Kontakt:</p>
+                            <p>Tel: +43 699 10040451</p>
+                            <p>Mail: heiko@hearsound.pro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-16 bg-[#000] border-t border-white/5 text-center">
+            <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-50">
+                <div class="flex items-center gap-4 mb-8 md:mb-0">
+                    <img src="344600605_198178313065472_7133978692423842205_n.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-green-500 grayscale">
+                    <p class="text-xl font-black headline-font uppercase tracking-tighter text-white">HEarSound</p>
+                </div>
+                <p class="text-[10px] font-black uppercase tracking-[0.5em] text-white">© 2026 HEarSound | Audio Engineering Leoben</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function handleCookie(accepted) {
+            document.getElementById('cookie-overlay').style.display = 'none';
+            if(accepted) {
+                localStorage.setItem('cookieConsent', 'accepted');
+            } else {
+                localStorage.setItem('cookieConsent', 'declined');
+            }
+        }
+
+        function toggleImpressum() {
+            const content = document.getElementById('impressum-content');
+            const icon = document.getElementById('imp-icon');
+            content.classList.toggle('open');
+            icon.innerText = content.classList.contains('open') ? '⊖' : '⊕';
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookie-overlay').style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>
